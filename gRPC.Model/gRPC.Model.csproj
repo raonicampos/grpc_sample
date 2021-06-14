@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Google.Protobuf" Version="$(GrpcProtobufVersion)" />
+        <PackageReference Include="Grpc" Version="$(GrpcVersion)" />
+        <PackageReference Include="Grpc.Core" Version="$(GrpcVersion)" />
+        <PackageReference Include="Grpc.Tools" Version="$(GrpcVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Protos\Hello.proto" />
+    </ItemGroup>
+</Project>

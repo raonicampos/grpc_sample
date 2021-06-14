@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+package Grpc.Hello;
+
+service HelloWorld {
+  rpc Unimplemented (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  rpc HelloRequestStream (stream HelloRequest) returns (HelloResponse) {}
+  rpc HelloResponseStream (HelloCountRequest) returns (stream HelloResponse) {}
+  rpc HelloBiStream (stream HelloRequest) returns (stream HelloResponse) {}
+  rpc Hello (HelloRequest) returns (HelloResponse) {}
+}
+
+message HelloRequest {
+  string Name = 1;
+}
+
+message HelloCountRequest {
+  string Name = 1;
+  int32 ResponseCount = 2;
+}
+
+message HelloResponse {
+  string Message = 1;
+  google.protobuf.Timestamp time = 2;
+}
